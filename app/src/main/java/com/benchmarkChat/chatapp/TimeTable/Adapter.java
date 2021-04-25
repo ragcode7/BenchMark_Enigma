@@ -24,13 +24,14 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     int count;
     FragmentManager fragmentManager;
     DataHolder[] dataHolders;
+    int type;
 
-    public Adapter(final Activity activity, int count, FragmentManager fragmentManager, DataHolder[] dataHolders) {
+    public Adapter(final Activity activity, int count, FragmentManager fragmentManager, DataHolder[] dataHolders, int type) {
         this.activity = activity;
         this.count = count;
         this.fragmentManager = fragmentManager;
         this.dataHolders = dataHolders;
-
+        this.type = type;
 
     }
 
@@ -136,23 +137,25 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 @Override
                 public void onClick(View view) {
 
+                    if(type == 0){
+
                     if((getAdapterPosition() - 7) < 7){
                         SettingsDialogFragment settingsDialogFragment = new SettingsDialogFragment("-1:-1", getAdapterPosition() - 7, Adapter.this);
                         FragmentTransaction ft = fragmentManager.beginTransaction();
                         Log.e("Adapter", "onClick: " + getAdapterPosition());
                         settingsDialogFragment.show(ft, null);
                     }
-                    else{
-                        if(dataHolders[(getAdapterPosition() - 14)] == null ){
+                    else {
+                        if (dataHolders[(getAdapterPosition() - 14)] == null) {
                             Toast.makeText(activity, "Please fill previous slot to fill this one", Toast.LENGTH_SHORT).show();
-                        }
-                        else{
+                        } else {
                             SettingsDialogFragment settingsDialogFragment = new SettingsDialogFragment(dataHolders[(getAdapterPosition() - 14)].getEndTime(), getAdapterPosition() - 7, Adapter.this);
                             FragmentTransaction ft = fragmentManager.beginTransaction();
                             Log.e("Adapter", "onClick: " + getAdapterPosition());
                             settingsDialogFragment.show(ft, null);
 
                         }
+                    }
                     }
 
                 }

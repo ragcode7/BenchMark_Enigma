@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.benchmarkChat.chatapp.R;
@@ -41,8 +42,11 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         int type = intent.getIntExtra("TYPE", 0);
+        Toast.makeText(this, type + "", Toast.LENGTH_SHORT).show();
         final int count = intent.getIntExtra("COUNT", 0);
         final String name = intent.getStringExtra("NAME");
+        TextView textView = findViewById(R.id.title);
+        textView.setText(name);
         String key  = null;
         if(type == 1){
             key = intent.getStringExtra("KEY");
@@ -54,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         final RecyclerView recyclerView = findViewById(R.id.recycler_view);
         final DataHolder[] dataHolders = new DataHolder[count * 7];
-        final Adapter adapter = new Adapter(this, count, getSupportFragmentManager(),dataHolders);
+        final Adapter adapter = new Adapter(this, count, getSupportFragmentManager(),dataHolders, type);
 
         if(type == 0) {
             findViewById(R.id.complete_table).setOnClickListener(new View.OnClickListener() {
