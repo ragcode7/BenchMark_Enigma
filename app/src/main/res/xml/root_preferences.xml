@@ -1,0 +1,38 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory app:title="Configure Slot">
+
+        <SwitchPreferenceCompat
+            app:key="recess"
+            app:summaryOff="Set slot as recess slot"
+            app:summaryOn="Set slot as scheduled slot"
+            app:title="Slot Type" />
+
+        <EditTextPreference
+            app:title="Title"
+            app:summary="Set title for the current slot"
+            app:dependency="recess"
+            app:key="title"/>
+
+        <EditTextPreference
+            app:title="Sub-Title"
+            app:summary="Set description for current slot"
+            app:dependency="recess"
+            app:key="sub_title"/>
+
+        <Preference
+            app:title="Starting Time"
+            app:summary="Set starting time of the slot"
+            app:key="start_time" />
+
+
+        <Preference
+            android:dependency="start_time"
+            app:title="Ending Time"
+            app:summary="Set ending time of the slot"
+            app:key="end_time" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

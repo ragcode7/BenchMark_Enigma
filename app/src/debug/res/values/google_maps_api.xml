@@ -1,0 +1,24 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=F4:0A:1B:10:A2:2A:B0:B2:A4:8D:93:F2:CF:8C:23:E3:49:CB:A3:3A%3Bcom.benchmarkChat.chatapp
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    com.benchmarkChat.chatapp
+
+    SHA-1 certificate fingerprint:
+    F4:0A:1B:10:A2:2A:B0:B2:A4:8D:93:F2:CF:8C:23:E3:49:CB:A3:3A
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBkFEDp7eZlwZ5t_b4Q6mpNpEcFdH_oEmQ</string>
+</resources>
